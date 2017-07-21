@@ -17,6 +17,11 @@
 Use the default or someting like:
 '(lambda() (thing-at-point 'word))")
 
+;; FIXME: implement ;;;;;;;;;;;
+(defcustom followcursor-ask-for-regex nil
+  "If set to t, ask for regex on mode start to use for marking.")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (make-variable-buffer-local
  (defvar followcursor--last-point nil
    "Buffer local variable storing last recorded cursor position."))
@@ -33,13 +38,19 @@ Return t if there are currently 2 visible windows."
       t
     nil))
 
-;; check previous 'thing and do nothing it's the same (eg when moving inside word)
+(defun followcursor-remove-highlights ()
+  (interactive)
+  (hi-lock-mode 0)
+  (other-window 1)
+  (hi-lock-mode 0)
+  (other-window 1))
+
 (defun followcursor--mark-and-highlight (mark-what hl-here hl-there)
   "Marks thing at point using form ''WHAT and highlights using form ''WHICH."
   (interactive)
   (when (followcursor--setup-ok)
     (let ((thing (funcall mark-what)))
-      (when thing
+      (if thing
         (unless (eq thing followcursor-previous-thing)
           ;; highlight here
           (hi-lock-mode 0)
@@ -49,7 +60,9 @@ Return t if there are currently 2 visible windows."
           (hi-lock-mode 0)
           (funcall hl-there thing)
           ;; go to here buffer
-          (other-window 1))))))
+          (other-window 1)
+          (setq followcursor-previous-thing thing))
+        (followcursor-remove-highlights)))))
 
 (defun followcursor-mark-symbol-lazy ()
   "Mark symbol at point, be tolerant about what constitutes a symbol."
@@ -82,10 +95,7 @@ Return t if there are currently 2 visible windows."
   "Disable followcursor-mode."
   (interactive)
   (remove-hook 'post-command-hook 'followcursor-mark-when-moved)
-  (hi-lock-mode 0)
-  (other-window 1)
-  (hi-lock-mode 0)
-  (other-window 1))
+  (followcursor-remove-highlights))
 
 ;;;###autoload
 (defun followcursor-mark-when-moved ()
