@@ -5,7 +5,7 @@
 
 ## Screenshot:
 
-![demo](imgs/followcursor-mode-screencast.gif | width=800 height=500)
+![demo](imgs/followcursor-mode-screencast.gif | =800x500)
 
 ## Usage:
 
