@@ -79,10 +79,7 @@ Use the default or someting like:
 (defun followcursor--setup-ok ()
   "Indicate if it is ok to run followcursor.
 Return t if there are currently 2 visible windows."
-  (interactive)
-  (if (eq (count-windows) 2)
-      t
-    nil))
+  (eq (count-windows) 2))
 
 (defun followcursor--mark-and-highlight (mark-what hl-here hl-there)
   "Marks thing at point using form ''WHAT and highlights using form ''WHICH."
