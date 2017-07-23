@@ -5,7 +5,7 @@
 
 ## Screenshot:
 
-![demo](imgs/followcursor-mode-screencast.gif =800x500)
+<img src="imgs/followcursor-mode-screencast.gif" alt="demo" width="800" height="500">
 
 ## Usage:
 
