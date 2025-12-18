@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This software is now being maintained on [Codeberg](https://codeberg.org/scip/followcursor-mode/).
+
 # followcursor-mode - highlight line in other buffer containing word in current buffer
 
 *Author:* T.v.Dein <tlinden@cpan.org><br>
