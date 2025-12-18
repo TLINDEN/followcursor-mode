@@ -22,7 +22,7 @@
 ;; Version: 0.02
 ;; Author: T.v.Dein <tlinden@cpan.org>
 ;; Keywords: files
-;; URL: https://github.com/tlinden/followcursor
+;; URL: https://codeberg.org/scip/followcursor
 ;; License: GNU General Public License >= 2
 
 ;;; Commentary:

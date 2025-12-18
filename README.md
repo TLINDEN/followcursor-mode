@@ -1,7 +1,7 @@
 # followcursor-mode - highlight line in other buffer containing word in current buffer
 
 *Author:* T.v.Dein <tlinden@cpan.org><br>
-*URL:* [https://github.com/tlinden/followcursor](https://github.com/tlinden/followcursor)<br>
+*URL:* [https://codeberg.org/scip/followcursor](https://codeberg.org/scip/followcursor)<br>
 
 ## Screenshot:
 
